@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Literacy Rate Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #aaa;
+            text-align: center;
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>📈 Literacy Rate Predictor</h2>
+    <form action="/predict" method="post">
+        <label for="region">Select Region:</label><br>
+        <select name="region" id="region" required>
+            <option value="">-- Choose Region --</option>
+            {% for reg in regions %}
+                <option value="{{ reg }}" {% if reg == selected_region %}selected{% endif %}>{{ reg }}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Predict Literacy Rate</button>
+    </form>
+
+    {% if prediction is defined %}
+        <h3>📊 Predicted Literacy Rate for {{ selected_region }}: <span style="color: green;">{{ prediction }}%</span></h3>
+    {% endif %}
+</div>
+</body>
+</html>

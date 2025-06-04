@@ -1,0 +1,25 @@
+# Ignore Python cache and logs
+__pycache__/
+*.pyc
+*.pyo
+*.log
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore notebooks if you don’t need them inside Docker
+*.ipynb
+
+# Ignore large raw datasets if not used during runtime
+
+# Ignore test files if you’re not testing inside the container
+test_*.py
+
+# Ignore development tools
+.env
+.vscode/
+.idea/
